@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Цитаты для вдохновения | Мудрые мысли и афоризмы</title>
+  <meta name="description" content="Коллекция вдохновляющих цитат, мудрых мыслей и афоризмов от великих людей. Найдите мотивацию и вдохновение на каждый день.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:title" content="Цитаты для вдохновения | Мудрые мысли и афоризмы">
+  <meta property="og:description" content="Коллекция вдохновляющих цитат, мудрых мыслей и афоризмов от великих людей.">
+  <meta property="og:image" content="https://example.com/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://example.com/">
+  <meta name="twitter:title" content="Цитаты для вдохновения | Мудрые мысли и афоризмы">
+  <meta name="twitter:description" content="Коллекция вдохновляющих цитат, мудрых мыслей и афоризмов от великих людей.">
+  <meta name="twitter:image" content="https://example.com/img/og-image.jpg">
+
+  <!-- Icons -->
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/img/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0f0f10">
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Accessible hidden SVG sprite (out of flow) -->
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+       style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </symbol>
+    <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </symbol>
+    <symbol id="icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </symbol>
+  </svg>
+
+  <header class="site-header" role="banner">
+    <div class="header-content">
+      <a href="/" class="logo-link" aria-label="На главную — Цитаты для вдохновения">
+        <img src="/img/logo.svg" alt="Цитаты для вдохновения" class="logo-img" width="48" height="48" loading="lazy">
+      </a>
+      <h1 class="main-title">Цитаты для вдохновения</h1>
+    </div>
+  </header>
+
+  <main class="main-content" role="main">
+    <section class="quote-card" aria-live="polite" aria-busy="true">
+      <div class="quote-content">
+        <div class="loading-indicator" aria-hidden="true">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <figure class="quote-wrapper" hidden>
+          <div class="quote-card-header">
+            <div class="quote-card-actions">
+              <button id="copy-quote-btn" type="button" class="icon-btn" aria-label="Копировать цитату" title="Копировать цитату">
+                <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg>
+              </button>
+              <button id="share-quote-btn" type="button" class="icon-btn" aria-label="Поделиться цитатой" title="Поделиться">
+                <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-share"></use></svg>
+              </button>
+            </div>
+          </div>
+          <blockquote id="quote-text"></blockquote>
+          <figcaption class="quote-card-footer">
+            <span id="quote-author">Неизвестный автор</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <button id="next-quote-btn" type="button" class="next-quote" aria-label="Следующая цитата">Следующая цитата</button>
+
+  <footer class="site-footer-bottom" role="contentinfo">
+    <p>&copy; 2025 Цитаты для вдохновения. Цитаты принадлежат их авторам.</p>
+  </footer>
+
+  <noscript>
+    Для отображения цитат требуется JavaScript. Пожалуйста, включите его в настройках браузера.
+  </noscript>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

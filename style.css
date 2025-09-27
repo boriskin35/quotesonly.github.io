@@ -1,0 +1,55 @@
+/* ===== Base & reset ===== */ *, *::before, *::after { box-sizing: border-box; } html { background-color: #000; } body, h1 { margin: 0; }
+
+:root { --paper-texture-size: 700px; --color-text: #3a2e25; --color-accent: #6b4f3a; --color-title: #4a3e33; --shadow-strong: 0 10px 30px rgba(0,0,0,0.4); --shadow-soft: 0 5px 15px rgba(0,0,0,0.3); }
+
+/* ===== Fonts ===== */ @font-face { font-family: 'Lora'; font-style: normal; font-display: swap; font-weight: 400 700; src: url('fonts/Lora-VariableFont_wght.ttf') format('truetype-variations'); } @font-face { font-family: 'Lora'; font-style: italic; font-display: swap; font-weight: 400 700; src: url('fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype-variations'); } @font-face { font-family: 'Roboto'; font-style: normal; font-display: swap; font-weight: 400 700; src: url('fonts/Roboto-VariableFont_wght.ttf') format('truetype-variations'); } @font-face { font-family: 'Roboto'; font-style: italic; font-display: swap; font-weight: 400 700; src: url('fonts/Roboto-Italic-VariableFont_wght.ttf') format('truetype-variations'); }
+
+/* ===== Body ===== */ body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif; color: var(--color-text); background-color: #6b4f3a; background-image: image-set( url('img/background.jpg') 1x, url('img/background@2x.jpg') 2x ); background-size: cover; background-repeat: no-repeat; background-position: center; display: flex; flex-direction: column; min-height: 100vh; padding-bottom: clamp(96px, 12vw, 140px); }
+
+/* Removed body::before overlay */
+
+/* ===== Header ===== */ .site-header { position: sticky; top: 0; z-index: 10; background-image: url('img/paper.jpg'); background-size: var(--paper-texture-size); box-shadow: var(--shadow-soft); border-bottom: 1px solid rgba(0,0,0,0.2); padding: 12px 16px; backdrop-filter: blur(2px); }
+
+.header-content { width: 90%; max-width: 700px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 16px; }
+
+.logo-img { width: 48px; height: 48px; flex-shrink: 0; display: inline-block; }
+
+.main-title { font-family: 'Roboto', sans-serif; font-size: clamp(1.6rem, 3.8vw, 2.2rem); font-weight: 700; color: var(--color-title); text-transform: uppercase; text-align: center; letter-spacing: 2px; }
+
+/* ===== Main ===== */ .main-content { position: relative; z-index: 1; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 32px 10px; }
+
+.quote-card { position: relative; width: 100%; max-width: 700px; display: flex; flex-direction: column; background-image: url('img/paper.jpg'); background-size: var(--paper-texture-size); border-radius: 15px; box-shadow: var(--shadow-strong); border: 1px solid rgba(0,0,0,0.2); overflow: hidden; }
+
+.quote-card > * { position: relative; z-index: 1; }
+
+/* Header & Footer with single divider line each */ .quote-card-header { display: flex; align-items: center; justify-content: flex-end; padding: 12px 16px; min-height: 48px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+.quote-card-footer { display: flex; align-items: center; justify-content: flex-start; padding: 12px 16px; min-height: 48px; border-top: 1px solid rgba(0,0,0,0.1); }
+
+.quote-content { transition: opacity 0.25s ease-in-out; }
+
+.quote-content.fade-out { opacity: 0; }
+
+/* Quote text */ blockquote#quote-text { font-family: 'Lora', serif; font-size: 1.8em; font-style: italic; line-height: 1.3; font-weight: 700; color: var(--color-title); margin: 0; padding: 30px 10px; text-align: center; }
+
+@media (min-width: 1024px) { blockquote#quote-text { padding-left: 30px; padding-right: 30px; } }
+
+/* Author */ .quote-card-footer #quote-author { font-size: 1.5em; font-weight: 700; color: var(--color-accent); }
+
+/* ===== Actions ===== */ .quote-card-actions { display: flex; justify-content: flex-end; gap: 12px; }
+
+.icon-btn { background: none; border: none; padding: 6px; cursor: pointer; color: var(--color-accent); transition: opacity 0.2s ease, transform 0.1s ease; opacity: 0.8; border-radius: 6px; } .icon-btn:hover { opacity: 1; } .icon-btn:active { transform: scale(0.98); } .icon-btn svg { width: 22px; height: 22px; stroke: currentColor; }
+
+.icon-btn:focus-visible, #next-quote-btn:focus-visible { outline: 2px solid #a57a57; outline-offset: 2px; }
+
+/* ===== Next quote button ===== */ #next-quote-btn { position: fixed; z-index: 100; bottom: clamp(16px, 5vw, 30px); left: 50%; transform: translateX(-50%); background-image: url('img/paper.jpg'); background-size: var(--paper-texture-size); border: 1px solid rgba(0,0,0,0.2); padding: 14px 26px; font-family: 'Lora', serif; font-size: clamp(1rem, 2.5vw, 1.1rem); font-style: italic; font-weight: 700; color: var(--color-accent); text-transform: lowercase; min-width: 220px; border-radius: 8px; cursor: pointer; box-shadow: var(--shadow-soft); transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease; } #next-quote-btn:hover { box-shadow: 0 4px 10px rgba(0,0,0,0.25); transform: translateX(-50%) translateY(-2px); } #next-quote-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ===== Loading ===== */ .loading-indicator { display: flex; justify-content: center; align-items: center; min-height: 50px; } .dot { width: 16px; height: 16px; margin: 0 6px; background-color: var(--color-accent); border-radius: 50%; animation: scale-up-down 1.2s infinite ease-in-out; } .dot:nth-child(1) { animation-delay: -0.24s; } .dot:nth-child(2) { animation-delay: -0.12s; } .dot:nth-child(3) { animation-delay: 0s; } .dot:nth-child(4) { animation-delay: 0.12s; } .dot:nth-child(5) { animation-delay: 0.24s; }
+
+@keyframes scale-up-down { 0%, 80%, 100% { transform: scale(0.5); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
+
+/* Respect reduced motion */ @media (prefers-reduced-motion: reduce) { .dot { animation: none; } .quote-content { transition: none; } }
+
+/* ===== Errors ===== */ .error-text { font-family: 'Lora', serif; font-size: clamp(1.2rem, 2.8vw, 1.8rem); font-weight: 700; color: var(--color-accent); padding: 20px; text-align: center; }
+
+/* ===== Footer ===== */ .site-footer-bottom { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important; left: auto !important; top: auto !important; }
